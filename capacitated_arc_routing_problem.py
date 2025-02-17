@@ -8,6 +8,11 @@ class CarpInstance:
     Reads a CARP instance file following the DIMACS challenge format.
     """
     def read_elem(self, filename):
+        # Resolve relative paths with respect to this module's directory.
+        if not os.path.isabs(filename):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            filename = os.path.join(base_dir, filename)
+
         with open(filename) as f:
             return [line.strip() for line in f.read().splitlines() if line.strip() != ""]
     
