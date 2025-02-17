@@ -1,0 +1,39 @@
+{
+    "entry_point": "capacitated_arc_routing_problem:CapacitatedArcRoutingProblem",
+    "default_params": {
+      "instance_file": "instances/egl-e1-A.dat"
+    },
+    "problem_type": "CapacitatedArcRouting",
+    "description": "In the capacitated arc routing problem (CARP), a fleet of vehicles with uniform capacity must service required edges (each with specified demand and cost) in a graph. Each required edge (which can be traversed in either direction) must be serviced by exactly one vehicle. Vehicles start and end at a common depot. The objective is to minimize the total distance traveled while ensuring that the demand serviced by each vehicle does not exceed its capacity.",
+    "keywords": [
+      "capacitated arc routing",
+      "CARP",
+      "vehicle routing",
+      "optimization"
+    ],
+    "data_format": {
+      "instance_file": {
+        "format": "The instance file follows the DIMACS challenge format with keywords such as VERTICES, ARISTAS_REQ, ARISTAS_NOREQ, VEHICULOS, CAPACIDAD, etc., followed by lists of required and non-required edges and the depot index."
+      }
+    },
+    "decision_variables": {
+      "edge_sequences": {
+        "type": "list of lists of int",
+        "description": "A list of routes, one per vehicle, where each route is a sequence of edge indices (0-indexed, from 0 to 2*nb_required_edges - 1) representing the serviced required edges in order."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Total distance traveled",
+      "description": "Minimize the sum of distances traveled by all vehicles, computed based on edge traversal costs and distances from/to the depot."
+    },
+    "solution_representation": "A dictionary with key 'edge_sequences' mapping to a list of lists, one per vehicle, containing edge indices (0-indexed) for the required edges serviced in order.",
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "tabu_search",
+      "particle_swarm"
+    ],
+    "notes": "Instances are based on the DIMACS challenge format. The problem requires that each required edge is serviced exactly once (by choosing one of its two directions) and that each vehicle's serviced demand does not exceed its capacity."
+  }
+  
