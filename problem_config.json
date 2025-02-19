@@ -3,7 +3,7 @@
     "default_params": {
       "instance_file": "instances/egl-e1-A.dat"
     },
-    "problem_type": "CapacitatedArcRouting",
+    "problem_type": "Capacitated Arc Routing Problem",
     "description": "In the capacitated arc routing problem (CARP), a fleet of vehicles with uniform capacity must service required edges (each with specified demand and cost) in a graph. Each required edge (which can be traversed in either direction) must be serviced by exactly one vehicle. Vehicles start and end at a common depot. The objective is to minimize the total distance traveled while ensuring that the demand serviced by each vehicle does not exceed its capacity.",
     "keywords": ["arc routing", "capacitated", "graph routing", "vehicle routing", "combinatorial", "optimization"],
     "data_format": {
